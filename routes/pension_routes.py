@@ -190,7 +190,7 @@ def query_pension_payments():
         if year:
             try:
                 int(year)
-                query += " AND YEAR(date) = %s"
+                query += " AND year = %s"  # 使用生成列 year
                 params.append(year)
             except ValueError:
                 return jsonify({'error': 'Year must be a valid integer'}), 400
